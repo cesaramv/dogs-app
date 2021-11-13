@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/store/app.reducer';
 import { getBreedsImagesList, getBreedsList, getLoading, getSubBreedsImagesList } from 'src/store/selectors/breeds.selectors';
@@ -50,22 +50,12 @@ export class AppComponent implements OnInit {
       })
     );
 
-    /* this.filteredBreeds = this.form.controls.breeds.valueChanges.pipe(
-      startWith(''),
-      map((value: any) => {
-        this._filter(value);
-
-      }),
-
-      
-    ); */
     this.form.controls.breeds.valueChanges.subscribe((x: any) => {
       this.filteredBreeds = this._filter(typeof x === 'object' ? x.breed : x);
       this.form.controls.subBreeds.setValue(null, {emitEvent: false});
       this.listImagesBreeds = null;
       this.subBreeds = [];
-      if (typeof x === 'object' && x.subbreed.length > 0) {
-        this.subBreeds = x.subbreed;
+      if (typeof x === 'object') {
         this.store.dispatch(actionsBreedsImages.loadBreedsImages({ filtros: { breed: x.breed } }));
       }
     });
