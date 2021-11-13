@@ -60,7 +60,7 @@
     display: flex;
     margin: 82px auto 32px;
     padding: 0 16px;
-    max-width: 960px;
+    max-width: 90%;
     flex-direction: column;
     align-items: center;
   }
@@ -95,3 +95,49 @@
     z-index: -10;
     width: 1920px;
   }
+
+  .example-card {
+    max-width: 400px;
+    border: 1px #aaa solid;
+    background-color: #fff;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    border-radius: 8px 0;
+  }
+
+  .footer-card-dog{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .example-card {
+    max-width: 32%;
+  }
+
+  .spanBreed {
+    font-size: 10px;
+    font-weight: bolder;
+    margin-top: -2px;
+  }
+
+  .w-100{
+      width: 100%;
+  }
+
+  .pl5 {
+    padding-left: 5px;
+  }
+
+  .ico-btn{
+    font-size: 17px;
+    padding-top: 5px;
+  }
+
+  .btn-card{
+      padding-left: 4px;
+      padding-right: 10px;
+  }
+  
