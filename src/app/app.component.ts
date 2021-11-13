@@ -52,10 +52,11 @@ export class AppComponent implements OnInit {
 
     this.form.controls.breeds.valueChanges.subscribe((x: any) => {
       this.filteredBreeds = this._filter(typeof x === 'object' ? x.breed : x);
-      this.form.controls.subBreeds.setValue(null, {emitEvent: false});
+      this.form.controls.subBreeds.setValue(null, { emitEvent: false });
       this.listImagesBreeds = null;
       this.subBreeds = [];
       if (typeof x === 'object') {
+        this.subBreeds = x.subbreed;
         this.store.dispatch(actionsBreedsImages.loadBreedsImages({ filtros: { breed: x.breed } }));
       }
     });
